@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/weapon_scatter.gd" type="Script" id=1]
+
+[node name="Weapon" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Cold" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Life" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="Cold" to="." method="_on_cold_timeout"]
+
+[connection signal="timeout" from="Life" to="." method="_on_life_finish"]
+
+
